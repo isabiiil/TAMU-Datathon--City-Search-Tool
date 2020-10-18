@@ -1,0 +1,62 @@
+import os
+import pandas as pd
+import numpy as np
+import streamlit as st
+import seaborn as sbn
+import matplotlib.pyplot as plt 
+
+
+def search_city():
+    # basic intoduction setup
+    City_Name = st.text_input('City Name', 'Houston')
+    st.write('The city of your dream is', City_Name)
+    Graphic_Generation(City_Name)
+
+def Graphic_Generation(City_name):
+    # reading the files
+    pop_df = pd.read_csv(POP_PATH)
+    div_df = pd.read_csv(DIV_PATH)
+    emp_r_df = pd.read_csv(EMPLOYMENT_RATIO_PATH)
+    ind_df = pd.read_csv(INDUSTRY_DF)
+
+    new_df = div_df.merge(pop_df, on='City', how="inner")
+    Cities_List = list(new_df['City'].values)
+    if City_name not in Cities_List:
+        City_name='Houston'
+    else:
+        pop_data = (pop_df[pop_df['City'] == City_name]).values[0]
+        st.write("There are approximatly {} people living in {}. The yougest person the is {} years old and the olders person is {} years old.".format(pop_data[0], pop_data[1],pop_data[2],pop_data[3]))
+        
+        div_data = div_df[div_df['City'] == City_name]
+        st.write("Ethinic Makeup")
+        plt.style.use("seaborn")
+        fig, ax = plt.subplots()
+        ax.pie(div_data.values[0][1:5], labels= div_data.columns[1:5])
+        st.pyplot(fig)
+        
+        emp_r_data = emp_r_df[emp_r_df['City'] == City_name]
+
+        st.write("Economic Makeup")
+        plt.style.use("seaborn")
+        fig, ax = plt.subplots()
+        ax.pie(emp_r_data.values[0][1:5], labels= emp_r_data.columns[1:5])
+        st.pyplot(fig)
+
+        ind_df_data = ind_df[ind_df['City'] == City_name]
+
+        st.write("WorkStyle of the City")
+        plt.style.use("seaborn")
+        fig, ax = plt.subplots()
+        ax.pie(ind_df_data.values[0][1:6], labels= ind_df_data.columns[1:6])
+        st.pyplot(fig)
+
+
+
+    
+LOCALPATH = os.getcwd()
+DATAPATH = os.path.join(LOCALPATH,"data")
+FILTERPATH = os.path.join(DATAPATH,"Filtered_data")
+POP_PATH = os.path.join(FILTERPATH,"City_based_population.csv")
+DIV_PATH = os.path.join(FILTERPATH,"Diversity_df.csv")
+EMPLOYMENT_RATIO_PATH = os.path.join(FILTERPATH,"Employment_ratio_df.csv")
+INDUSTRY_DF = os.path.join(FILTERPATH,"Industry_df.csv")

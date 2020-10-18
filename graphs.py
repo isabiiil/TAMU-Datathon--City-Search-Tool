@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import seaborn as sns
 import plotly.figure_factory as ff
+from PIL import Image
 
 
 #Paths to all the data files
@@ -18,7 +19,7 @@ pop_path = os.path.join(data_path,"City_based_population.csv")
 income_path = os.path.join(data_path,"kaggle_income.csv")
 div_path = os.path.join(data_path,"population.csv")
 
-st.title("Funky Graphs, Let's get it")
+st.title("Funky Graphs, Let's get it :smile:")
 
 #table
 Income_df = pd.read_csv(income_path,encoding = 'latin-1')
@@ -59,7 +60,7 @@ st.plotly_chart(fig_2)
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# Seaborn Line Plot 
+# Seaborn Line Plot #
 df = pd.DataFrame({'x': [1, 2, 3], 'y': [10, 30, 70]})
 sns.lineplot(x='x', y='y', data=df)
 st.pyplot()
@@ -67,7 +68,8 @@ st.pyplot()
 
 
 
-# Add histogram data
+# Histogram with plotly #
+
 x1 = np.random.randn(200) - 2
 x2 = np.random.randn(200)
 x3 = np.random.randn(200) + 2
@@ -75,8 +77,38 @@ x3 = np.random.randn(200) + 2
 hist_data = [x1, x2, x3]
 group_labels = ['Group 1', 'Group 2', 'Group 3']
 # Create distplot with custom bin_size
-fig = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
+fig_4 = ff.create_distplot(hist_data, group_labels, bin_size=[.1, .25, .5])
 # Plot!
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig_4, use_container_width=True)
 
 
+# World Map Data Visualization #
+df = pd.read_csv('https://drive.google.com/uc?id=1hSMhl-JeTCX-t72KjhasTQoL1LdWSRhw')
+df = px.data.gapminder()
+fig_5 = px.choropleth(df, locations="iso_alpha", color="lifeExp", hover_name="country", animation_frame="year", range_color=[20,80])
+st.plotly_chart(fig_5)
+
+
+# IMAGE #
+image = Image.open('original.png')
+st.image(image, caption='Tamu Datathon 2020 ',
+         use_column_width=True)
+
+# VIDEO #
+video_file = open('star.mp4', 'rb')
+video_bytes = video_file.read()
+st.video(video_bytes)
+
+# Celeberatory BALLOONS  #
+st.balloons()
+
+# BUTTON #
+if st.button('Say hello'):
+     st.write('Why hello there')
+else:
+     st.write('Goodbye')
+
+# CheckList #
+agree = st.checkbox('I agree')
+if agree:
+  st.write('Great!')

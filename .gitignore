@@ -4,3 +4,4 @@ data/
 .DS_Store?
 .vscode/
 data.zip
+__pycache__/*

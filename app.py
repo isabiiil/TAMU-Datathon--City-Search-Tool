@@ -2,7 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import streamlit as st
-from Searching_Dashboard_abhay import search_city
+from Searching_Dashboard import search_city
 from Recommendation_Dashboard import recommend_city
 def main():
     aboutus_text = st.markdown(local_get_file_content_as_string("About_Us.md"))     

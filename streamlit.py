@@ -1,10 +1,29 @@
-import streamlit as st
-import numpy as np
-import pandas as pd
+import os
 import time
+import json 
+from pandas.io.json import json_normalize #package for flattening json in pandas df
+import matplotlib.pyplot as plt
+import dateutil.parser
+from PIL import Image
+from PIL import ImageOps
+import gc
+
+
+
+#Paths of all the data files
+data_path = os.path.join(os.getcwd(), "data")
+pop_path = os.path.join(data_path, "City_based_population.csv")
+income_path = os.path.join(data_path, "Income_clean.csv")
+div_path = os.path.join(data_path, "population.csv")
 
 st.title('My first app')
 
+# table
+# Income_df = pd.read_csv('data/kaggle_income.csv', dtype={'Mean':"int", "Stdev": "int", "Median":"int"})
+# Income_df = pd.read_csv(income_path, encoding='latin-1')
+Income_clean_df = pd.read_csv(income_path)
+# st.line_chart(Income_df[['Mean']])
+st.line_chart(Income_clean_df["Mean"])
 # table
 st.write("Here's our first attempt at using data to create a table:")
 st.write(pd.DataFrame({
@@ -90,3 +109,10 @@ else:
     np.random.randn(20, 3),
     columns=['a', 'b', 'c'])
   st.line_chart(chart_data)
+
+##############
+# new graphs #
+##############
+
+incomeDF = pd.read_csv('data/kaggle_income.csv', dtype={'Mean':"int", "Stdev": "int", "Median":"int"})
+st.line_chat(incomeDF[["Mean","Stdev", "Median"]])

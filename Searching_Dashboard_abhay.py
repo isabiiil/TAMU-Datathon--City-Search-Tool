@@ -17,7 +17,8 @@ def Graphic_Generation(City_name):
     pop_df = pd.read_csv(POP_PATH)
     div_df = pd.read_csv(DIV_PATH)
     emp_r_df = pd.read_csv(EMPLOYMENT_RATIO_PATH)
-    ind_df = pd.read_csv(INDUSTRY_DF)
+    ind_df = pd.read_csv(INDUSTRY_PATH)
+    tra_df = pd.read_csv(TRANSPORT_PATH)
 
     new_df = div_df.merge(pop_df, on='City', how="inner")
     Cities_List = list(new_df['City'].values)
@@ -28,26 +29,23 @@ def Graphic_Generation(City_name):
         st.write("There are approximatly {} people living in {}. The yougest person the is {} years old and the olders person is {} years old.".format(pop_data[0], pop_data[1],pop_data[2],pop_data[3]))
         
         div_data = div_df[div_df['City'] == City_name]
-        st.write("Ethinic Makeup")
-        plt.style.use("seaborn")
-        fig, ax = plt.subplots()
-        ax.pie(div_data.values[0][1:5], labels= div_data.columns[1:5])
-        st.pyplot(fig)
-        
         emp_r_data = emp_r_df[emp_r_df['City'] == City_name]
-
-        st.write("Economic Makeup")
-        plt.style.use("seaborn")
-        fig, ax = plt.subplots()
-        ax.pie(emp_r_data.values[0][1:5], labels= emp_r_data.columns[1:5])
-        st.pyplot(fig)
-
         ind_df_data = ind_df[ind_df['City'] == City_name]
+        tra_df_data = tra_df[tra_df['City'] == City_name]
+        
+        plt.style.use("seaborn-deep")
 
-        st.write("WorkStyle of the City")
-        plt.style.use("seaborn")
-        fig, ax = plt.subplots()
-        ax.pie(ind_df_data.values[0][1:6], labels= ind_df_data.columns[1:6])
+        fig, axs = plt.subplots(2,2)
+        
+        axs[0,0].pie(div_data.values[0][1:5], labels= div_data.columns[1:5])
+        axs[0,0].set_title("Ethinic Makeup")
+        axs[1,0].pie(emp_r_data.values[0][1:5], labels= emp_r_data.columns[1:5])       
+        axs[1,0].set_title("Economic Makeup")
+        axs[0,1].pie(ind_df_data.values[0][1:6], labels= ind_df_data.columns[1:6])
+        axs[0,1].set_title("Work Style Makeup")
+        axs[1,1].pie(tra_df_data.values[0][1:7], labels= tra_df_data.columns[1:7])
+        axs[1,1].set_title("Transportation Makeup")
+        fig.suptitle("Visualization the make up of the City")
         st.pyplot(fig)
 
 
@@ -59,4 +57,5 @@ FILTERPATH = os.path.join(DATAPATH,"Filtered_data")
 POP_PATH = os.path.join(FILTERPATH,"City_based_population.csv")
 DIV_PATH = os.path.join(FILTERPATH,"Diversity_df.csv")
 EMPLOYMENT_RATIO_PATH = os.path.join(FILTERPATH,"Employment_ratio_df.csv")
-INDUSTRY_DF = os.path.join(FILTERPATH,"Industry_df.csv")
+INDUSTRY_PATH = os.path.join(FILTERPATH,"Industry_df.csv")
+TRANSPORT_PATH = os.path.join(FILTERPATH,"Transportation_df.csv")

@@ -10,7 +10,7 @@ def main():
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
     st.sidebar.title("What to do")
     app_mode = st.sidebar.selectbox("Choose the app mode",
-        ["About Us", "City Search", "City Recomendation"])
+        ["City Recomendation", "City Search", "About Us"])
 
     if app_mode == "City Recomendation":
         aboutus_text.empty()

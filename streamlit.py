@@ -1,10 +1,23 @@
+import os
+import time
 import streamlit as st
 import numpy as np
 import pandas as pd
-import time
+
+#Paths of all the data files
+data_path = os.path.join(os.getcwd(), "data")
+pop_path = os.path.join(data_path, "City_based_population.csv")
+income_path = os.path.join(data_path, "Income_clean.csv")
+div_path = os.path.join(data_path, "population.csv")
 
 st.title('My first app')
 
+# table
+# Income_df = pd.read_csv('data/kaggle_income.csv', dtype={'Mean':"int", "Stdev": "int", "Median":"int"})
+# Income_df = pd.read_csv(income_path, encoding='latin-1')
+Income_clean_df = pd.read_csv(income_path)
+# st.line_chart(Income_df[['Mean']])
+st.line_chart(Income_clean_df["Mean"])
 # table
 st.write("Here's our first attempt at using data to create a table:")
 st.write(pd.DataFrame({

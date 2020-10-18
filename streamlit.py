@@ -1,8 +1,14 @@
 import os
 import time
-import streamlit as st
-import numpy as np
-import pandas as pd
+import json 
+from pandas.io.json import json_normalize #package for flattening json in pandas df
+import matplotlib.pyplot as plt
+import dateutil.parser
+from PIL import Image
+from PIL import ImageOps
+import gc
+
+
 
 #Paths of all the data files
 data_path = os.path.join(os.getcwd(), "data")
@@ -103,3 +109,10 @@ else:
     np.random.randn(20, 3),
     columns=['a', 'b', 'c'])
   st.line_chart(chart_data)
+
+##############
+# new graphs #
+##############
+
+incomeDF = pd.read_csv('data/kaggle_income.csv', dtype={'Mean':"int", "Stdev": "int", "Median":"int"})
+st.line_chat(incomeDF[["Mean","Stdev", "Median"]])

@@ -1,8 +1,8 @@
 # CitySearchTool
 TamuDatathon 2020
 
-
-
+# Demonstaration
+![Demo](demo.gif)
 
 ## How to run this demo
 ```

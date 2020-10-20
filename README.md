@@ -1,7 +1,7 @@
-# CitySearchTool
+# City Search Tool
 TamuDatathon 2020
 
-# Demonstaration
+# Demonstration
 ![Demo] (https://media.giphy.com/media/xooXRsPt98gYpscPzq/giphy.gif)
 
 ## How to run this demo

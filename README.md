@@ -9,7 +9,7 @@ TamuDatathon 2020
 
 
 # Demonstration
-[![Demo](https://media.giphy.com/media/xooXRsPt98gYpscPzq/giphy.gif)]()
+[![Demo](https://media.giphy.com/media/t4t6QsLVCKCMIPtpu6/giphy.gif)]()
 
 
 ## How to setup

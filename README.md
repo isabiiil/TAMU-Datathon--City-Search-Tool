@@ -14,17 +14,14 @@ TamuDatathon 2020
 
 ## How to setup
 ```
-
 pip install -r requirements.txt
-
 ```
-
 
 ## How to run this demo
 ```
 streamlit run app.py
 ```
 
-### Questions? Comments?
+### Contributions and Problems?
 
-Please ask in the question as comments on the Youtube Video or throught discuession posts.
+This project is open for contribution, so please make pull request for any contributions. Please use issues section to address any problems. 

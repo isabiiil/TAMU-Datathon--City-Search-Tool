@@ -21,7 +21,7 @@ def main():
         search_city()
         # st.code(get_file_content_as_string("app.py"))
     elif app_mode == "About Us":
-        aboutus_text = st.markdown(local_get_file_content_as_string("ABOUTUS.md"), unsafe_allow_html=True) 
+        aboutus_text = st.markdown(local_get_file_content_as_string(ABOUTUSPATH), unsafe_allow_html=True) 
         st.sidebar.success('Try other pages for finding your new home')    
     # Add a selectbox to the sidebar:
         
@@ -32,5 +32,6 @@ def local_get_file_content_as_string(path):
 
 
 LOCALPATH = os.getcwd()
+ABOUTUSPATH = "About_Us.md"
 if __name__ == "__main__":
     main()    

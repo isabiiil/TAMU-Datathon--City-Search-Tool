@@ -2,11 +2,11 @@
 TamuDatathon 2020
 
 # Demonstaration
-![Demo](demo.gif)
+![Demo] (https://media.giphy.com/media/xooXRsPt98gYpscPzq/giphy.gif)
 
 ## How to run this demo
 ```
-pip install --upgrade requirements.txt
+pip install -r requirements.txt
 streamlit run app.py
 ```
 

@@ -6,11 +6,10 @@ from Searching_Dashboard import search_city
 from Recommendation_Dashboard import recommend_city
 
 def main():
-
     st.title("The city of your Dreams")
     aboutus_text = st.markdown("")  
     # Once we have the dependencies, add a selector for the app mode on the sidebar.
-    st.sidebar.title("What to do")
+    st.sidebar.title("El Dorado")
     app_mode = st.sidebar.selectbox("Choose the app mode",
         ["City Recomendation", "City Search", "About Us"])
 
@@ -26,13 +25,6 @@ def main():
         st.sidebar.success('Try other pages for finding your new home')    
     # Add a selectbox to the sidebar:
         
-
-
-
-def get_file_content_as_string(path):
-    url = 'https://raw.githubusercontent.com/streamlit/demo-self-driving/master/' + path
-    response = urllib.request.urlopen(url)
-    return response.read().decode("utf-8")
 
 def local_get_file_content_as_string(path):
     file_path = os.path.join(LOCALPATH,path)

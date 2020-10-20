@@ -1,6 +1,7 @@
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
+[![python-versions](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue)]
 
 # City Search Tool
 TamuDatathon 2020

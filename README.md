@@ -24,4 +24,4 @@ streamlit run app.py
 
 ### Contributions and Problems?
 
-This project is open for contribution, so please make pull request for any contributions. Please use issues section to address any problems. 
+>This project is open for contribution, so please make pull request for any contributions. Please use issues section to address any problems. 

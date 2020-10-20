@@ -1,8 +1,15 @@
-# CitySearchTool
+
+[![forthebadge made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/yourGitHubName/yourRepo/yourApp/)
+[![python-versions](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7-blue)]()
+
+# City Search Tool
 TamuDatathon 2020
 
-# Demonstaration
-![Demo] (https://media.giphy.com/media/xooXRsPt98gYpscPzq/giphy.gif)
+
+
+# Demonstration
+[![Demo](https://media.giphy.com/media/xooXRsPt98gYpscPzq/giphy.gif)]()
 
 ## How to run this demo
 ```

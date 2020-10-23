@@ -24,14 +24,13 @@ def main():
         aboutus_text = st.markdown(local_get_file_content_as_string(ABOUTUSPATH), unsafe_allow_html=True) 
         st.sidebar.success('Try other pages for finding your new home')    
     # Add a selectbox to the sidebar:
-        
 
 def local_get_file_content_as_string(path):
     file_path = os.path.join(LOCALPATH,path)
     return open(file_path, 'r').read()
 
-
 LOCALPATH = os.getcwd()
 ABOUTUSPATH = "About_Us.md"
+
 if __name__ == "__main__":
     main()    

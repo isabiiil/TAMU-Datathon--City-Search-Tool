@@ -4,8 +4,7 @@
 [![python-versions](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7%20%7C%203.8-blue)]()
 
 # City Search Tool
-TamuDatathon 2020
-
+>Our mission is to create happy American homes by recommending and presenting cities right for you.
 
 
 # Demonstration

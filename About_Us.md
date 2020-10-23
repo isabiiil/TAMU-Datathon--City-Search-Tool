@@ -2,7 +2,7 @@
 
 ### Our Goal
 
->Our mission is to crete happy home for Americans by recommending and presenting city
+>Our mission is to create happy American homes by recommending and presenting cities right for you.
 
 ### Inspiration
 

@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 from geopy.geocoders import Nominatim
+import matplotlib.pyplot as plt
+# from mpl_toolkits.basemap import Basemap
 from sklearn.preprocessing import StandardScaler
 # need to change the order 
 
@@ -50,13 +52,28 @@ def City_to_Number(Cities, States):
         if location != None:
             Longitude.append(location.longitude)
             Latitude.append(location.latitude)
-        
     return Longitude,Latitude
 
 def map_drawer(Cities,States):
-    lat,longi = City_to_Number(Cities,States)
-    for i,la in enumerate(lat):
-        st.write("{}) {}, {}".format(i+1, la, longi[i]))
+    longi,lat = City_to_Number(Cities,States)
+    fig, ax = plt.subplots()
+    for i, logs in enumerate(longi):
+        if -65 < logs or -125 > logs:
+            longi.remove(logs)
+            lat.remove(lat[i])
+    for i, la in enumerate(lat):
+        if 50 < la or 25 > la:
+            longi.remove(longi[i])
+            lat.remove(la)
+    # BBox = [-175,-55,15,65]
+    BBox = [-125,-65,25,50]
+    us_m = plt.imread(MAPPATH)
+    ax.scatter(longi,lat, zorder=1, alpha=1, c='r', s=20)
+    # ax.set_xlim(BBox[0],BBox[1])
+    # ax.set_ylim(BBox[2],BBox[3])
+    ax.imshow(us_m, zorder=0, aspect='auto', extent = BBox)
+    st.pyplot(fig)
+    
     
 
 # @st.cache(suppress_st_warning=True)
@@ -110,6 +127,7 @@ def data_2_weight(data):
     return weights
     
 LOCALPATH = os.getcwd()
+MAPPATH = os.path.join(LOCALPATH,"map.png")
 DATAPATH = os.path.join(LOCALPATH,"City_Search_Data")
 POP_PATH = os.path.join(DATAPATH,"Population_df.csv")
 DIV_PATH = os.path.join(DATAPATH,"Diversity_df.csv")

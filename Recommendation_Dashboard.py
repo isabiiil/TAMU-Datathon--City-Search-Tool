@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import numpy as np
 import streamlit as st
+from geopy.geocoders import Nominatim
 from sklearn.preprocessing import StandardScaler
 # need to change the order 
 
@@ -32,9 +33,31 @@ def recommend_city():
     if Submit:
         data = {'population':population, "diversity":diversity, "commuting":commuting, 
             "WorkingStype":WorkingStype, "Sector":Sector, "Tran_mode":tran_mode}
-        Cities, Sates = Recommendation_lister(data, k)
+        Cities, States = Recommendation_lister(data, k)
         for i,city in enumerate(Cities):
-            st.write("{}) {}, {}".format(i+1, city, Sates[i]))
+            st.write("{}) {}, {}".format(i+1, city, States[i]))
+        map_drawer(Cities,States)
+
+
+def City_to_Number(Cities, States):
+    Cities_States = list()
+    for i, City in enumerate(Cities):
+        Cities_States.append(City+' '+States[i])
+    geolocator = Nominatim(user_agent='myapplication')
+    Longitude, Latitude = list(), list()
+    for i, City_State in enumerate(Cities_States):
+        location = geolocator.geocode(City_State)
+        if location != None:
+            Longitude.append(location.longitude)
+            Latitude.append(location.latitude)
+        
+    return Longitude,Latitude
+
+def map_drawer(Cities,States):
+    lat,longi = City_to_Number(Cities,States)
+    for i,la in enumerate(lat):
+        st.write("{}) {}, {}".format(i+1, la, longi[i]))
+    
 
 # @st.cache(suppress_st_warning=True)
 def Recommendation_lister(data, k):

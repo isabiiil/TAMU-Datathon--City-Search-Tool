@@ -36,8 +36,12 @@ def recommend_city():
         data = {'population':population, "diversity":diversity, "commuting":commuting, 
             "WorkingStype":WorkingStype, "Sector":Sector, "Tran_mode":tran_mode}
         Cities, States = Recommendation_lister(data, k)
+        mark_string = "## The results are: \n"
         for i,city in enumerate(Cities):
-            st.write("{}) {}, {}".format(i+1, city, States[i]))
+            city_href = city.replace(' ', '+')
+            href="http://www.google.com/search?q={}+{}".format(city_href,States[i])
+            mark_string += "{}. [{}, {}]({}) \n".format(i+1, city, States[i],href)
+        st.markdown(mark_string, unsafe_allow_html=True)
         map_drawer(Cities,States)
 
 

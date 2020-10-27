@@ -1,14 +1,14 @@
 
 [![forthebadge made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://gentle-mountain-57922.herokuapp.com)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/avashist1998/citysearchtool/main/app.py)
 [![python-versions](https://img.shields.io/badge/python-3.5%20%7C%203.6%20%7C%203.7%20%7C%203.8-blue)](https://www.python.org)
-[![Heroku](https://img.shields.io/badge/heroku-deployed-green)](https://gentle-mountain-57922.herokuapp.com)
+
 # City Search Tool
 >Our mission is to create happy American homes by recommending and presenting cities right for you.
 
 
 # Demonstration
-[![Demo](https://media.giphy.com/media/t4t6QsLVCKCMIPtpu6/giphy.gif)]()
+[![Demo](https://media.giphy.com/media/t4t6QsLVCKCMIPtpu6/giphy.gif)](https://share.streamlit.io/avashist1998/citysearchtool/main/app.py)
 
 
 ## How to setup
